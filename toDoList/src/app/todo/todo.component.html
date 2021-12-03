@@ -1,10 +1,16 @@
 <h1>liste des tache a realiser </h1>
 <ul class="list-group">
 
-  <li class="list-group-item" *ngFor="let todo of todos let i = index">{{todo.todoName}} {{todo.todoStatus}}
-    <a [href]="todo.image"><img [src]="todo.image" alt=""></a>
-    <button class="btn btn-primary" [disabled]="todo.todoStatus" (click)="onChangeStatus(i)">en cour</button>
-    <button class="btn btn-success" [disabled]="!todo.todoStatus" (click)="onChangeStatus(i)">terminée</button>
+  <li class="list-group-item" *ngFor="let todo of todos let i = index">
+
+    <div [ngClass]="{encours:todo.todoStatus,terminee:!todo.todoStatus}">
+      <!-- on ajoute une classe entre crochés et on dit quand on clique sur ecours elle devien rose et si on clique sur terminee elle devient verte -->
+      <a [href]="todo.image"><img [src]="todo.image"></a>
+      {{todo.todoName}}
+      <button class="btn btn-primary" [disabled]="todo.todoStatus" (click)="onChangeStatus(i)">en cour</button>
+      <button class="btn btn-success" [disabled]="!todo.todoStatus" (click)="onChangeStatus(i)">terminée</button>
+      <input class="form-control" [(ngModel)]="todo.todoName" />
+    </div>
   </li>
 
 
