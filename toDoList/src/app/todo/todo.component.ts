@@ -11,39 +11,50 @@ export class TodoComponent {
   todoThree: string = 'projet 3';
   todoFour: string = 'projet 4';
 
+  isModif = false;
+
   todos = [
     {
       todoName: 'projet 1',
       todoStatus: true,
       image: 'http://placehold.it/150',
+      isModif: false,
     },
 
     {
       todoName: 'projet 1',
       todoStatus: true,
       image: 'http://placehold.it/150',
+      isModif: false,
     },
 
     {
       todoName: 'projet 2',
       todoStatus: true,
       image: 'http://placehold.it/150',
+      isModif: false,
     },
 
     {
       todoName: 'projet 3',
       todoStatus: true,
       image: 'http://placehold.it/150',
+      isModif: false,
     },
 
     {
       todoName: 'projet 4',
       todoStatus: true,
       image: 'http://placehold.it/150',
+      isModif: false,
     },
   ];
 
   onChangeStatus(i: number) {
     this.todos[i].todoStatus = !this.todos[i].todoStatus;
+  }
+
+  onChangeIsModif(i: number) {
+    this.todos[i].isModif = !this.todos[i].isModif;
   }
 }
